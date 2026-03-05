@@ -48,11 +48,22 @@ while (deveContinuar == true) //COMPARANDO
 
     Console.WriteLine();
 
-    //INT = NÚMERO INTEIRO
-    int primeiroNumero = Convert.ToInt32(strPrimeiroNumero);
-    int segundoNumero = Convert.ToInt32(strSegundoNumero);
+    bool primeiroNumeroVazio = string.IsNullOrEmpty(strPrimeiroNumero);
+    bool segundoNumeroVazio = string.IsNullOrEmpty(strSegundoNumero);
 
-    int resultado;
+    if (primeiroNumeroVazio || segundoNumeroVazio)
+    {
+        Console.WriteLine("Digite um número válido");
+        Console.ReadLine();
+
+        continue;
+    }
+
+    //INT = NÚMERO INTEIRO
+    decimal primeiroNumero = Convert.ToDecimal(strPrimeiroNumero);
+    decimal segundoNumero = Convert.ToDecimal(strSegundoNumero);
+
+    decimal resultado;
 
     //ESTRUTURAS CONDICIONAIS
 
