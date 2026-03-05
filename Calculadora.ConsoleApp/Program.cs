@@ -59,42 +59,44 @@ while (deveContinuar == true) //COMPARANDO
         continue;
     }
 
-    //INT = NÚMERO INTEIRO
+    //DECIMAL = Números quebrados
     decimal primeiroNumero = Convert.ToDecimal(strPrimeiroNumero);
     decimal segundoNumero = Convert.ToDecimal(strSegundoNumero);
 
     decimal resultado;
 
-    //ESTRUTURAS CONDICIONAIS
-
-    if (operacaoSelecionada == "1")
+    switch (operacaoSelecionada)
     {
-        resultado = primeiroNumero + segundoNumero;
-    }
+        case "1":
+            resultado = primeiroNumero + segundoNumero;
+            break;
 
-    else if (operacaoSelecionada == "2")
-    {
-        resultado = primeiroNumero - segundoNumero;
-    }
+        case "2":
+            resultado = primeiroNumero - segundoNumero;
+            break;
 
-    else if (operacaoSelecionada == "3")
-    {
-        resultado = primeiroNumero * segundoNumero;
-    }
-    else
-    {
-        if (segundoNumero == 0)
-        {
-            Console.WriteLine("Não é possível fazer uma divisão por zero. Tente novamente.");
+        case "3":
+            resultado = primeiroNumero * segundoNumero;
+            break;
 
-            return; //ENTENDE QUE É PARA SAIR DO ESCOPO E IGNORAR TUDO DEPOIS DO RETURN
-        }
-        else
-        {
+        case "4":
+            if (segundoNumero == 0)
+            {
+                Console.WriteLine("Não é possível fazer uma divisão por zero. Tente novamente.");
+
+                return; //ENTENDE QUE É PARA SAIR DO ESCOPO E IGNORAR TUDO DEPOIS DO RETURN
+            }
+
             resultado = primeiroNumero / segundoNumero;
-        }
+            break;
+
+        default:
+            Console.WriteLine("Selecione uma operação válida");
+            Console.ReadLine();
+            continue;
 
     }
+
 
     Console.WriteLine($"A operação dos dois números resulta em: {resultado}");
 
