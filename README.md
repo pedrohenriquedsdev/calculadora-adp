@@ -1,6 +1,6 @@
 # Calculadora 2026
 
-![Calculadora em Uso](./docs/WindowsTerminal_907eVBa8xA.gif | width=100)
+![Calculadora em Uso](./docs/WindowsTerminal_907eVBa8xA.gif)
  
 ## Introdução
 Uma calculadora de console simples, porém completa. Permite realizar as quatro operações matemáticas básicas, consultar o histórico de operações e acessar a tabuada diretamente pelo terminal.
