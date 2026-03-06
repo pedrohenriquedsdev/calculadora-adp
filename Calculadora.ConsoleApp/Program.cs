@@ -13,10 +13,9 @@
 string[] hisotricoDeOperacoes = new string[100]; //ARRAY / VETOR /
 int contadorDeOperacoes = 0;
 
-
 while (true) //COMPARANDO 
 {
-
+    Console.Clear();
     Console.WriteLine("================");
     Console.WriteLine("Calculadora 2026");
     Console.WriteLine("================");
@@ -66,10 +65,10 @@ while (true) //COMPARANDO
 
     else if (operacaoSelecionada == "6") //VISUALIZAR O HISTÓRICO DE OPERAÇÕES
     {
-        Console.Write("Histórico de Operações");
+        Console.WriteLine("Histórico de Operações");
         Console.WriteLine("============================");
 
-        for (int contador = 0; contador < 10; contador++)
+        for (int contador = 0; contador < contadorDeOperacoes; contador++)
         {
             Console.WriteLine(hisotricoDeOperacoes[contador]);
         }
