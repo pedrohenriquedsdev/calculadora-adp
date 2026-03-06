@@ -7,12 +7,14 @@
 //Requisito 5: Nossa calculadora deve permitir a execução de múltiplas operações.
 //V2
 //Requisito 6: Nossa calculadora deve dar a possibilidade de produizir a tabuada de um número informado 
+//V3
 //Requisito 7: Nossa calculadora deve dar a possibilidade de visualizar o histórico de operações
 
-bool deveContinuar = true;
+string[] hisotricoDeOperacoes = new string[100]; //ARRAY / VETOR /
+int contadorDeOperacoes = 0;
 
 
-while (deveContinuar == true) //COMPARANDO 
+while (true) //COMPARANDO 
 {
 
     Console.WriteLine("================");
@@ -24,6 +26,7 @@ while (deveContinuar == true) //COMPARANDO
     Console.WriteLine("3 - Multiplicação");
     Console.WriteLine("4 - Divisão");
     Console.WriteLine("5 - Tabuada");
+    Console.WriteLine("6 - Histórico de Operações");
     Console.WriteLine("S - Sair");
 
     Console.WriteLine();
@@ -31,12 +34,11 @@ while (deveContinuar == true) //COMPARANDO
     Console.Write("Selecione uma operação válida: ");
     string operacaoSelecionada = Console.ReadLine()!;
 
-    if (operacaoSelecionada == "S")
+    if (operacaoSelecionada == "S" || operacaoSelecionada == "s")
     {
-        deveContinuar = false;
-
-        continue; //IGNORA O RESTANTE E OLHA PARA A VARIÁVEL "deveContinuar" novamente.
+        return; //VOLTA PARA O INÍCIO DE TODO O CÓDIGO
     }
+
 
     if (operacaoSelecionada == "5")
     {
@@ -58,7 +60,24 @@ while (deveContinuar == true) //COMPARANDO
         }
 
         Console.ReadLine();
-        continue;
+        continue; //IGNORA O RESTANTE E VOLTA PARA O INÍCIO DO LOOP
+
+    }
+
+    else if (operacaoSelecionada == "6") //VISUALIZAR O HISTÓRICO DE OPERAÇÕES
+    {
+        Console.Write("Histórico de Operações");
+        Console.WriteLine("============================");
+
+        for (int contador = 0; contador < 10; contador++)
+        {
+            Console.WriteLine(hisotricoDeOperacoes[contador]);
+        }
+
+        Console.ReadLine();
+        continue; //IGNORA O RESTANTE E VOLTA PARA O INÍCIO DO LOOP
+
+
     }
 
 
@@ -92,18 +111,23 @@ while (deveContinuar == true) //COMPARANDO
 
     decimal resultado;
 
+    string textoOperacao;
+
     switch (operacaoSelecionada)
     {
         case "1":
             resultado = primeiroNumero + segundoNumero;
+            textoOperacao = $"{primeiroNumero} + {segundoNumero} = {resultado}";
             break;
 
         case "2":
             resultado = primeiroNumero - segundoNumero;
+            textoOperacao = $"{primeiroNumero} - {segundoNumero} = {resultado}";
             break;
 
         case "3":
             resultado = primeiroNumero * segundoNumero;
+            textoOperacao = $"{primeiroNumero} * {segundoNumero} = {resultado}";
             break;
 
         case "4":
@@ -113,8 +137,8 @@ while (deveContinuar == true) //COMPARANDO
 
                 return; //ENTENDE QUE É PARA SAIR DO ESCOPO E IGNORAR TUDO DEPOIS DO RETURN
             }
-
             resultado = primeiroNumero / segundoNumero;
+            textoOperacao = $"{primeiroNumero} / {segundoNumero} = {resultado}";
             break;
 
         default:
@@ -122,6 +146,12 @@ while (deveContinuar == true) //COMPARANDO
             Console.ReadLine();
             continue;
 
+    }
+
+    if (contadorDeOperacoes < hisotricoDeOperacoes.Length)
+    {
+        hisotricoDeOperacoes[contadorDeOperacoes] = textoOperacao;
+        contadorDeOperacoes++;
     }
 
 
